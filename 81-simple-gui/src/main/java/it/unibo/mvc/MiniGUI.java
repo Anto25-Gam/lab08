@@ -3,7 +3,6 @@ package it.unibo.mvc;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -34,9 +33,6 @@ public class MiniGUI {
      */
     public MiniGUI() {
 
-        /**
-         * mio
-         */
         final JPanel panel = new JPanel();
         final BoxLayout layoutPanel = new BoxLayout(panel, BoxLayout.X_AXIS);
         panel.setLayout(layoutPanel);
@@ -48,16 +44,9 @@ public class MiniGUI {
         panel.add(write); //aggiunto button
         canvas.add(panel, BorderLayout.CENTER); //myPanel sostituisce write
 
-        final JPanel resultPanel = new JPanel();
-        final BoxLayout layoutResultPanel = new BoxLayout(resultPanel, BoxLayout.X_AXIS);
-        resultPanel.setLayout(layoutResultPanel);
+        final JTextField textFieldResult = new JTextField("Result");
 
-        final JTextField textFieldResult = new JTextField();
-        final JLabel labelTextFieldResult = new JLabel(" Result ");
-
-        resultPanel.add(textFieldResult);
-        resultPanel.add(labelTextFieldResult);
-        canvas.add(resultPanel, BorderLayout.NORTH);
+        canvas.add(textFieldResult, BorderLayout.NORTH);
 
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,9 +56,9 @@ public class MiniGUI {
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                int number = randomGenerator.nextInt();
-                System.out.println(number);
+                final int number = randomGenerator.nextInt();
                 textFieldResult.setText(Integer.toString(number));
+                System.out.println(Integer.toString(number)); //NOPMD
             }
         });
     }
