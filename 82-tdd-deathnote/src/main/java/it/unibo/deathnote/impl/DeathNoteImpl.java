@@ -84,7 +84,7 @@ public class DeathNoteImpl implements DeathNote {
         if (isNameWritten(name)) {
             final String cause = dethnote.get(name).get(INDEXCAUSE);
             if (cause.isBlank()) {
-                return new String("heart attack"); //NOPMD
+                return "heart attack";
             }
             return cause;
         }
