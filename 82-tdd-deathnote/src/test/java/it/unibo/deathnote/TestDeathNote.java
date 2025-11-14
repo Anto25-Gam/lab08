@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class TestDeathNote {
     private static final int TIME_CAUSE_LIMIT = 40;
+    private static final int TEST_TIME_CAUSE_LIMIT = 100;
     private static final int TIME_DETAIL_LIMIT = 6000;
     private static final String MARCO = "Marco";
     private static final String FILIPPO = "Filippo";
@@ -75,7 +76,7 @@ class TestDeathNote {
 
         assertEquals("karting accident", deathnote.getDeathCause(FILIPPO));
 
-        Thread.sleep(100);
+        Thread.sleep(TEST_TIME_CAUSE_LIMIT);
 
         assertFalse(deathnote.writeDeathCause(CAUSE_DEATH1));
         assertNotEquals(deathnote.getDeathCause(FILIPPO), CAUSE_DEATH1);
